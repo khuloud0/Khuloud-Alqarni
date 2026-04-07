@@ -3,169 +3,172 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Khuloud Alqarni | Software Engineer & UI/UX Specialist</title>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Plus+Jakarta+Sans:wght@400;700;800&display=swap" rel="stylesheet">
+    <title>Kholoud Alqarni | Software Engineer & UI/UX Designer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --primary: #6366f1; 
-            --accent: #14b8a6; 
-            --bg-base: #020617;
-            --bg-surface: #0f172a;
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-            --border: rgba(255, 255, 255, 0.1);
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --text-dark: #2d3436;
+            --text-muted: #636e72;
+            --bg-light: #f9f9f9;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: var(--bg-base);
-            color: var(--text-main);
-            line-height: 1.6;
-            scroll-behavior: smooth;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; }
 
-        code { font-family: 'Fira Code', monospace; color: var(--accent); }
+        body { background-color: white; color: var(--text-dark); line-height: 1.6; }
 
-        /* Navigation */
-        nav {
+        /* Header / Navbar */
+        header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.5rem 10%;
-            position: fixed;
-            width: 100%;
+            padding: 20px 8%;
+            background: rgba(255, 255, 255, 0.95);
+            position: sticky;
             top: 0;
-            background: rgba(2, 6, 23, 0.8);
-            backdrop-filter: blur(16px);
             z-index: 1000;
-            border-bottom: 1px solid var(--border);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
 
-        .logo { font-weight: 800; font-size: 1.2rem; letter-spacing: -1px; }
-        .nav-links a { color: var(--text-main); text-decoration: none; margin-left: 2rem; font-size: 0.85rem; font-weight: 600; transition: 0.3s; }
-        .nav-links a:hover { color: var(--primary); }
+        .logo { font-weight: 800; font-size: 24px; color: #764ba2; letter-spacing: 1px; }
+        nav a { margin-left: 25px; text-decoration: none; color: var(--text-dark); font-weight: 500; font-size: 14px; transition: 0.3s; }
+        nav a:hover { color: #764ba2; }
 
         /* Hero Section */
-        header {
-            height: 100vh;
+        .hero {
+            background: var(--primary-gradient);
+            min-height: 85vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            padding: 0 10%;
-            background: radial-gradient(circle at 80% 20%, rgba(99, 102, 241, 0.15) 0%, transparent 40%);
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 40px 20px;
         }
 
-        .intro-tag { font-family: 'Fira Code'; color: var(--primary); font-size: 0.9rem; margin-bottom: 1rem; }
-        h1 { font-size: clamp(2.5rem, 8vw, 5rem); font-weight: 800; line-height: 1; letter-spacing: -2px; }
-        h1 span { background: linear-gradient(to right, var(--primary), var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .hero-desc { max-width: 650px; color: var(--text-muted); font-size: 1.2rem; margin: 2rem 0; }
+        .hero h1 { font-size: 4rem; font-weight: 800; margin-bottom: 15px; letter-spacing: -1px; }
+        .hero p { font-size: 1.3rem; max-width: 800px; opacity: 0.9; font-weight: 300; }
 
-        /* Sections */
-        section { padding: 8rem 10%; }
-        h2 { font-size: 2rem; margin-bottom: 4rem; display: flex; align-items: center; gap: 20px; }
-        h2::after { content: ""; height: 1px; flex-grow: 1; background: var(--border); }
-
-        /* Professional Grid */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; }
-        .card { 
-            background: var(--bg-surface); 
-            padding: 2.5rem; 
-            border-radius: 12px; 
-            border: 1px solid var(--border);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        .btn-group { margin-top: 40px; display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; }
+        .btn {
+            padding: 14px 30px;
+            border-radius: 50px;
+            border: 2px solid white;
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
-        .card:hover { transform: translateY(-8px); border-color: var(--primary); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
-        .card h3 { font-size: 1.3rem; margin-bottom: 1rem; color: var(--text-main); }
-        .card p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem; }
+        .btn:hover { background: white; color: #764ba2; transform: translateY(-3px); }
 
-        .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-        .tags span { background: rgba(255,255,255,0.05); padding: 4px 12px; border-radius: 4px; font-size: 0.75rem; font-family: 'Fira Code'; color: var(--accent); }
+        /* Skills Section */
+        .section { padding: 100px 10%; background: var(--bg-light); text-align: center; }
+        .section-title { font-size: 2.5rem; font-weight: 700; color: #1a1a2e; margin-bottom: 10px; }
+        .section-subtitle { color: var(--text-muted); margin-bottom: 50px; font-size: 1.1rem; }
 
-        /* CTA Button */
-        .cta { 
-            display: inline-block; 
-            background: var(--primary); 
-            color: white; 
-            padding: 1rem 2.5rem; 
-            border-radius: 6px; 
-            text-decoration: none; 
-            font-weight: 700; 
-            font-size: 0.9rem;
-            transition: 0.3s;
-            border: 1px solid var(--primary);
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
         }
-        .cta:hover { background: transparent; color: var(--primary); }
 
-        footer { text-align: center; padding: 4rem; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 0.8rem; letter-spacing: 1px; }
+        .card {
+            background: white;
+            padding: 50px 30px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+            transition: all 0.4s ease;
+            border-top: 4px solid transparent;
+        }
+        .card:hover { transform: translateY(-10px); border-top-color: #764ba2; }
+        .card i { font-size: 45px; color: #764ba2; margin-bottom: 25px; }
+        .card h3 { font-size: 1.5rem; margin-bottom: 15px; }
+        .card p { color: var(--text-muted); font-size: 0.95rem; }
+
+        /* Footer */
+        footer {
+            background: #1a1a2e;
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+        .social-links { margin-bottom: 20px; }
+        .social-links a { color: white; font-size: 20px; margin: 0 15px; transition: 0.3s; }
+        .social-links a:hover { color: #667eea; }
+        .footer-text { opacity: 0.6; font-size: 13px; letter-spacing: 1px; }
 
         @media (max-width: 768px) {
-            .nav-links { display: none; }
-            section { padding: 4rem 5%; }
+            .hero h1 { font-size: 2.5rem; }
+            header { flex-direction: column; gap: 15px; }
+            nav a { margin: 0 10px; }
         }
     </style>
 </head>
 <body>
 
-    <nav>
-        <div class="logo">K.ALQARNI</div>
-        <div class="nav-links">
-            <a href="#about">About</a>
-            <a href="#expertise">Expertise</a>
-            <a href="#projects">Architecture</a>
-            <a href="#contact">Contact</a>
-        </div>
-    </nav>
-
     <header>
-        <p class="intro-tag">Software Engineer & UI/UX Architect</p>
-        <h1>Engineering Digital <span>Experiences.</span></h1>
-        <p class="hero-desc">Focused on building scalable backend architectures and intuitive user interfaces. I bridge the gap between complex technical logic and seamless human interaction.</p>
-        <div>
-            <a href="#projects" class="cta">View Documentation</a>
-        </div>
+        <div class="logo">KA</div>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#contact">Contact</a>
+        </nav>
     </header>
 
-    <section id="expertise">
-        <h2>Technical Core</h2>
-        <div class="grid">
+    <section class="hero">
+        <h1>Kholoud Alqarni</h1>
+        <p>Software Engineer & UI/UX Designer. Focused on building clean, impactful digital experiences through elegant code and Swiss-style minimalism.</p>
+        <div class="btn-group">
+            <a href="mailto:your-email@example.com" class="btn"><i class="fas fa-envelope"></i> Get In Touch</a>
+            <a href="https://github.com/khuloud0" target="_blank" class="btn"><i class="fab fa-github"></i> View GitHub</a>
+            <a href="#" class="btn"><i class="fas fa-file-download"></i> Download CV</a>
+        </div>
+    </section>
+
+    <section id="skills" class="section">
+        <h2 class="section-title">Technical Expertise</h2>
+        <p class="section-subtitle">Combining engineering logic with design aesthetics</p>
+        <div class="skills-grid">
             <div class="card">
-                <h3>Backend Engineering</h3>
-                <p>Developing high-performance server-side logic and robust API integrations with a focus on security and scalability.</p>
-                <div class="tags">
-                    <span>Python</span><span>Flask</span><span>RESTful APIs</span><span>PostgreSQL</span>
-                </div>
+                <i class="fab fa-react"></i>
+                <h3>Frontend Dev</h3>
+                <p>Building responsive interfaces using React.js, modern JavaScript, and CSS3.</p>
             </div>
             <div class="card">
-                <h3>UI/UX Architecture</h3>
-                <p>Crafting design systems based on Swiss minimalism and user-centered research to optimize digital workflows.</p>
-                <div class="tags">
-                    <span>Figma</span><span>Design Ops</span><span>Prototyping</span><span>Swiss Style</span>
-                </div>
+                <i class="fas fa-server"></i>
+                <h3>Backend Systems</h3>
+                <p>Architecting robust backends with Python, Flask, and SQL databases.</p>
             </div>
             <div class="card">
-                <h3>Full-stack Lifecycle</h3>
-                <p>Managing the complete software development lifecycle (SDLC) from technical documentation to deployment.</p>
-                <div class="tags">
-                    <span>React.js</span><span>Git/GitHub</span><span>Linux/Shell</span><span>Security Ops</span>
-                </div>
+                <i class="fas fa-bezier-curve"></i>
+                <h3>UI/UX Design</h3>
+                <p>Crafting user-centric designs in Figma with a focus on minimalist aesthetics.</p>
             </div>
         </div>
     </section>
 
-    <section id="projects">
-        <h2>Production Projects</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>Artura B2B Ecosystem</h3>
-                <p>Architected a B2B solution for the interior design and real estate industry, integrating technical management with premium UX.</p>
-                <div class="tags"><span>Technical Lead</span><span>Product Design</span></div>
-            </div>
-            <div class="card">
-                <h3>Ripple Up Infrastructure</h3>
-                <p>Directed the development and technical documentation for a high-level MVP project, focusing on system modularity.</p>
-                <div class="tags"><span>Architecture</span><span>Full-stack</span></div>
-            </div>
-            <div class="card">
-                <h3>Open Source Contributions</h3>
-                <p>Engineering optimized solutions for public repositories and
+    <section id="contact" class="section" style="background: white;">
+        <h2 class="section-title">Let's Connect</h2>
+        <p class="section-subtitle">Based in Riyadh, Saudi Arabia. Open to remote opportunities.</p>
+        <div class="btn-group">
+            <a href="https://linkedin.com/in/your-profile" class="btn" style="color: #764ba2; border-color: #764ba2;"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="social-links">
+            <a href="https://github.com/khuloud0"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-behance"></i></a>
+        </div>
+        <p class="footer-text">© 2026 KHOLOUD ALQARNI — RIYADH, SAUDI ARABIA</p>
+    </footer>
+
+</body>
+</html>
