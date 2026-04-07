@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khuloud Alqarni | Software Engineer & UI/UX Specialist</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Plus+Jakarta+Sans:wght@400;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6366f1; 
+            --accent: #14b8a6; 
+            --bg-base: #020617;
+            --bg-surface: #0f172a;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border: rgba(255, 255, 255, 0.1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-base);
+            color: var(--text-main);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        code { font-family: 'Fira Code', monospace; color: var(--accent); }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 10%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            background: rgba(2, 6, 23, 0.8);
+            backdrop-filter: blur(16px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo { font-weight: 800; font-size: 1.2rem; letter-spacing: -1px; }
+        .nav-links a { color: var(--text-main); text-decoration: none; margin-left: 2rem; font-size: 0.85rem; font-weight: 600; transition: 0.3s; }
+        .nav-links a:hover { color: var(--primary); }
+
+        /* Hero Section */
+        header {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 10%;
+            background: radial-gradient(circle at 80% 20%, rgba(99, 102, 241, 0.15) 0%, transparent 40%);
+        }
+
+        .intro-tag { font-family: 'Fira Code'; color: var(--primary); font-size: 0.9rem; margin-bottom: 1rem; }
+        h1 { font-size: clamp(2.5rem, 8vw, 5rem); font-weight: 800; line-height: 1; letter-spacing: -2px; }
+        h1 span { background: linear-gradient(to right, var(--primary), var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero-desc { max-width: 650px; color: var(--text-muted); font-size: 1.2rem; margin: 2rem 0; }
+
+        /* Sections */
+        section { padding: 8rem 10%; }
+        h2 { font-size: 2rem; margin-bottom: 4rem; display: flex; align-items: center; gap: 20px; }
+        h2::after { content: ""; height: 1px; flex-grow: 1; background: var(--border); }
+
+        /* Professional Grid */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; }
+        .card { 
+            background: var(--bg-surface); 
+            padding: 2.5rem; 
+            border-radius: 12px; 
+            border: 1px solid var(--border);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .card:hover { transform: translateY(-8px); border-color: var(--primary); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+        .card h3 { font-size: 1.3rem; margin-bottom: 1rem; color: var(--text-main); }
+        .card p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem; }
+
+        .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+        .tags span { background: rgba(255,255,255,0.05); padding: 4px 12px; border-radius: 4px; font-size: 0.75rem; font-family: 'Fira Code'; color: var(--accent); }
+
+        /* CTA Button */
+        .cta { 
+            display: inline-block; 
+            background: var(--primary); 
+            color: white; 
+            padding: 1rem 2.5rem; 
+            border-radius: 6px; 
+            text-decoration: none; 
+            font-weight: 700; 
+            font-size: 0.9rem;
+            transition: 0.3s;
+            border: 1px solid var(--primary);
+        }
+        .cta:hover { background: transparent; color: var(--primary); }
+
+        footer { text-align: center; padding: 4rem; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 0.8rem; letter-spacing: 1px; }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            section { padding: 4rem 5%; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">K.ALQARNI</div>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#expertise">Expertise</a>
+            <a href="#projects">Architecture</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <header>
+        <p class="intro-tag">Software Engineer & UI/UX Architect</p>
+        <h1>Engineering Digital <span>Experiences.</span></h1>
+        <p class="hero-desc">Focused on building scalable backend architectures and intuitive user interfaces. I bridge the gap between complex technical logic and seamless human interaction.</p>
+        <div>
+            <a href="#projects" class="cta">View Documentation</a>
+        </div>
+    </header>
+
+    <section id="expertise">
+        <h2>Technical Core</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Backend Engineering</h3>
+                <p>Developing high-performance server-side logic and robust API integrations with a focus on security and scalability.</p>
+                <div class="tags">
+                    <span>Python</span><span>Flask</span><span>RESTful APIs</span><span>PostgreSQL</span>
+                </div>
+            </div>
+            <div class="card">
+                <h3>UI/UX Architecture</h3>
+                <p>Crafting design systems based on Swiss minimalism and user-centered research to optimize digital workflows.</p>
+                <div class="tags">
+                    <span>Figma</span><span>Design Ops</span><span>Prototyping</span><span>Swiss Style</span>
+                </div>
+            </div>
+            <div class="card">
+                <h3>Full-stack Lifecycle</h3>
+                <p>Managing the complete software development lifecycle (SDLC) from technical documentation to deployment.</p>
+                <div class="tags">
+                    <span>React.js</span><span>Git/GitHub</span><span>Linux/Shell</span><span>Security Ops</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>Production Projects</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Artura B2B Ecosystem</h3>
+                <p>Architected a B2B solution for the interior design and real estate industry, integrating technical management with premium UX.</p>
+                <div class="tags"><span>Technical Lead</span><span>Product Design</span></div>
+            </div>
+            <div class="card">
+                <h3>Ripple Up Infrastructure</h3>
+                <p>Directed the development and technical documentation for a high-level MVP project, focusing on system modularity.</p>
+                <div class="tags"><span>Architecture</span><span>Full-stack</span></div>
+            </div>
+            <div class="card">
+                <h3>Open Source Contributions</h3>
+                <p>Engineering optimized solutions for public repositories and
