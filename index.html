@@ -7,192 +7,241 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --primary-gradient: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
-            --tech-accent: #10b981; /* Green for stability/code */
-            --text-dark: #0f172a;
-            --text-muted: #475569;
-            --bg-light: #f8fafc;
-            --white: #ffffff;
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --text-dark: #2d3436;
+            --text-muted: #636e72;
+            --bg-light: #f9f9f9;
+            --shadow: 0 10px 30px rgba(0,0,0,0.08);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', -apple-system, sans-serif; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { color: var(--text-dark); line-height: 1.6; scroll-behavior: smooth; }
 
-        body { background-color: var(--white); color: var(--text-dark); line-height: 1.6; scroll-behavior: smooth; }
-
-        /* Navigation */
+        /* Navbar */
         header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 8%;
-            background: rgba(255, 255, 255, 0.9);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid #e2e8f0;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 20px 10%; background: white; position: sticky; top: 0; z-index: 1000;
         }
+        .logo { font-size: 24px; font-weight: 800; color: #764ba2; }
+        nav a { margin-left: 30px; text-decoration: none; color: var(--text-dark); font-weight: 500; font-size: 15px; }
 
-        .logo { font-weight: 800; font-size: 22px; color: #4f46e5; letter-spacing: -0.5px; }
-        nav a { margin-left: 30px; text-decoration: none; color: var(--text-dark); font-weight: 600; font-size: 14px; transition: 0.3s; }
-        nav a:hover { color: #4f46e5; }
+        /* Section Commons */
+        section { padding: 100px 10%; text-align: center; }
+        .section-title { font-size: 2.5rem; color: #764ba2; margin-bottom: 10px; }
+        .underline { width: 50px; height: 4px; background: #764ba2; margin: 0 auto 30px; border-radius: 2px; }
 
-        /* Hero - Focus on Engineering */
+        /* 1. Hero Section (Same as Waseem) */
         .hero {
-            background: var(--primary-gradient);
-            min-height: 90vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: white;
-            padding: 60px 20px;
+            background: var(--primary-gradient); min-height: 90vh;
+            display: flex; flex-direction: column; justify-content: center; align-items: center; color: white;
         }
-
-        .hero h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 800; margin-bottom: 20px; letter-spacing: -2px; }
-        .hero p { font-size: 1.35rem; max-width: 900px; opacity: 0.95; font-weight: 300; line-height: 1.7; }
-        .hero span { color: #a5b4fc; font-weight: 700; }
-
-        .btn-group { margin-top: 45px; display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
+        .hero h1 { font-size: 4.5rem; font-weight: 800; margin-bottom: 10px; }
+        .hero .job-title { font-size: 1.8rem; margin-bottom: 30px; opacity: 0.9; }
+        .hero p { max-width: 800px; font-size: 1.1rem; margin-bottom: 40px; opacity: 0.85; }
+        .btn-group { display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; }
         .btn {
-            padding: 15px 35px;
-            border-radius: 8px;
-            border: 2px solid white;
-            text-decoration: none;
-            color: white;
-            font-weight: 700;
-            font-size: 15px;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 12px;
+            padding: 12px 30px; border-radius: 50px; border: 2px solid white;
+            text-decoration: none; color: white; font-weight: 600; display: flex; align-items: center; gap: 10px; transition: 0.3s;
         }
-        .btn:hover { background: white; color: #4f46e5; transform: translateY(-4px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+        .btn-white { background: white; color: #764ba2; }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.15); }
 
-        /* Full-Stack Skills Section */
-        .section { padding: 100px 10%; background: var(--bg-light); }
-        .section-title { font-size: 2.8rem; font-weight: 800; text-align: center; color: var(--text-dark); margin-bottom: 15px; }
-        .section-subtitle { text-align: center; color: var(--text-muted); margin-bottom: 60px; font-size: 1.2rem; }
+        /* 2. About Section */
+        .about-card {
+            background: white; padding: 50px; border-radius: 20px; box-shadow: var(--shadow);
+            max-width: 900px; margin: 0 auto; text-align: left; border-top: 5px solid #764ba2;
+        }
+        .about-card p { margin-bottom: 20px; color: var(--text-muted); font-size: 1.1rem; }
 
+        /* 3. Technical Skills (Grid Layout) */
         .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 40px;
+        }
+        .skill-card {
+            background: white; padding: 40px; border-radius: 15px; box-shadow: var(--shadow);
+            transition: 0.3s; border-bottom: 4px solid transparent;
+        }
+        .skill-card:hover { border-bottom: 4px solid #764ba2; transform: translateY(-5px); }
+        .skill-card i { font-size: 40px; color: #764ba2; margin-bottom: 20px; }
+        .skill-card h3 { margin-bottom: 10px; }
+        .skill-card p { font-size: 0.9rem; color: var(--text-muted); }
+
+        /* 4. Portfolio Section */
+        .portfolio { background: var(--primary-gradient); color: white; }
+        .portfolio .section-title { color: white; }
+        .portfolio .underline { background: white; }
+        .project-container { display: flex; gap: 30px; justify-content: center; flex-wrap: wrap; }
+        .project-card {
+            background: white; color: var(--text-dark); padding: 40px; border-radius: 20px;
+            width: 450px; text-align: left; position: relative;
         }
 
-        .card {
-            background: var(--white);
-            padding: 45px 35px;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
-            transition: 0.4s;
-            border-left: 5px solid #4f46e5;
+        /* 5. Contact Section */
+        .contact-grid {
+            display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-top: 40px;
         }
-        .card:hover { transform: translateY(-10px); box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1); }
-        .card i { font-size: 40px; color: #4f46e5; margin-bottom: 25px; }
-        .card h3 { font-size: 1.5rem; margin-bottom: 15px; color: var(--text-dark); }
-        .card p { color: var(--text-muted); font-size: 1rem; margin-bottom: 20px; }
-
-        .tag-box { display: flex; flex-wrap: wrap; gap: 8px; }
-        .tag { background: #f1f5f9; color: #4f46e5; padding: 5px 12px; border-radius: 4px; font-size: 12px; font-weight: 700; font-family: monospace; }
+        .contact-item {
+            background: white; padding: 30px; border-radius: 15px; box-shadow: var(--shadow);
+            width: 280px; display: flex; flex-direction: column; align-items: center;
+        }
+        .contact-icon {
+            width: 60px; height: 60px; background: #f0f0ff; border-radius: 15px;
+            display: flex; align-items: center; justify-content: center;
+            color: #764ba2; font-size: 24px; margin-bottom: 15px;
+        }
 
         /* Footer */
-        footer {
-            background: #0f172a;
-            color: white;
-            padding: 80px 0 40px;
-            text-align: center;
-        }
-        .footer-text { opacity: 0.5; font-size: 14px; margin-top: 30px; }
+        footer { background: #1a1a2e; color: white; padding: 50px 0; }
+        .social-icons { margin-bottom: 20px; }
+        .social-icons a { color: white; margin: 0 15px; font-size: 20px; opacity: 0.7; transition: 0.3s; }
+        .social-icons a:hover { opacity: 1; }
 
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.8rem; }
-            header { padding: 15px 5%; }
-            nav { display: none; }
+            header { flex-direction: column; gap: 15px; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo">KHOLOUD.DEV</div>
+        <div class="logo">KA</div>
         <nav>
             <a href="#about">About</a>
-            <a href="#skills">Stack</a>
-            <a href="#portfolio">Projects</a>
-            <a href="mailto:your-email@example.com">Contact</a>
+            <a href="#skills">Skills</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#contact">Contact</a>
         </nav>
     </header>
 
-    <section id="about" class="hero">
-        <h1>Full-Stack <span>Software Engineer</span></h1>
+    <!-- Section 1: Hero -->
+    <section id="hero" class="hero">
+        <h1>Kholoud Alqarni</h1>
+        <div class="job-title">Full-Stack Software Engineer</div>
         <p>
-            Specialized in architecting scalable backend systems and high-performance web applications. 
-            From <span>Low-Level C Programming</span> to <span>Modern Cloud Infrastructure</span>, I build end-to-end solutions with a focus on clean code and intuitive UI/UX.
+            Building end-to-end software systems and scalable web applications, from low-level system architecture 
+            to modern cloud deployment, with a strong focus on clean code and minimalist UI/UX design.
         </p>
         <div class="btn-group">
-            <a href="https://github.com/khuloud0" target="_blank" class="btn"><i class="fab fa-github"></i> GitHub Repositories</a>
-            <a href="#" class="btn"><i class="fas fa-terminal"></i> View Technical CV</a>
+            <a href="mailto:kholoud@example.com" class="btn"><i class="fas fa-envelope"></i> Get In Touch</a>
+            <a href="https://github.com/khuloud0" class="btn btn-white"><i class="fab fa-github"></i> View GitHub</a>
+            <a href="#" class="btn"><i class="fas fa-eye"></i> View CV</a>
+            <a href="#" class="btn"><i class="fas fa-download"></i> Download CV</a>
         </div>
     </section>
 
-    <section id="skills" class="section">
-        <h2 class="section-title">Technical Ecosystem</h2>
-        <p class="section-subtitle">A professional stack developed through rigorous engineering residency.</p>
+    <!-- Section 2: About Me -->
+    <section id="about" style="background: var(--bg-light);">
+        <h2 class="section-title">About Me</h2>
+        <div class="underline"></div>
+        <p style="margin-bottom: 40px; color: var(--text-muted);">Passionate about crafting robust and elegant software solutions</p>
+        <div class="about-card">
+            <p>
+                I am a Software Engineering student at Holberton School with a focus on Full-Stack development[cite: 1]. 
+                I bridge the gap between complex backend logic and user-centric design[cite: 1].
+            </p>
+            <p>
+                My expertise spans the entire development lifecycle, including systems programming in C, 
+                database architecture with SQL, and building dynamic frontends with React.js[cite: 1].
+            </p>
+        </div>
+    </section>
+
+    <!-- Section 3: Skills -->
+    <section id="skills">
+        <h2 class="section-title">Technical Skills</h2>
+        <div class="underline"></div>
+        <p style="color: var(--text-muted);">Comprehensive expertise across the software engineering stack[cite: 1]</p>
         
         <div class="skills-grid">
-            <div class="card">
-                <i class="fas fa-server"></i>
-                <h3>Backend Engineering</h3>
-                <p>Architecting secure RESTful APIs and microservices. Expert in database modeling and server-side optimization.</p>
-                <div class="tag-box">
-                    <span class="tag">Python</span><span class="tag">Flask</span><span class="tag">SQLAlchemy</span><span class="tag">PostgreSQL</span><span class="tag">MySQL</span>
-                </div>
+            <div class="skill-card">
+                <i class="fab fa-python"></i>
+                <h3>Backend</h3>
+                <p>Python, Flask, RESTful APIs, and server-side logic[cite: 1].</p>
             </div>
-
-            <div class="card">
-                <i class="fas fa-network-wired"></i>
-                <h3>Systems & DevOps</h3>
-                <p>Foundation in low-level C programming, memory management, and Linux systems. Deploying with modern CI/CD workflows.</p>
-                <div class="tag-box">
-                    <span class="tag">C Language</span><span class="tag">Docker</span><span class="tag">Nginx</span><span class="tag">Bash</span><span class="tag">Git</span>
-                </div>
+            <div class="skill-card">
+                <i class="fas fa-database"></i>
+                <h3>Databases</h3>
+                <p>SQL, MySQL, PostgreSQL, and Data Modeling[cite: 1].</p>
             </div>
-
-            <div class="card">
-                <i class="fas fa-code"></i>
-                <h3>Frontend Architecture</h3>
-                <p>Developing responsive, user-centric interfaces. Bridging the gap between Figma design systems and functional React components.</p>
-                <div class="tag-box">
-                    <span class="tag">React.js</span><span class="tag">JavaScript (ES6+)</span><span class="tag">HTML5/CSS3</span><span class="tag">UI/UX Design</span>
-                </div>
+            <div class="skill-card">
+                <i class="fas fa-microchip"></i>
+                <h3>Systems</h3>
+                <p>Low-level C programming and Memory Management[cite: 1].</p>
+            </div>
+            <div class="skill-card">
+                <i class="fab fa-react"></i>
+                <h3>Frontend</h3>
+                <p>React.js, JavaScript (ES6+), and modern HTML/CSS[cite: 1].</p>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-layer-group"></i>
+                <h3>UI/UX Design</h3>
+                <p>Minimalist & Swiss style design using Figma[cite: 1].</p>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-tools"></i>
+                <h3>DevOps</h3>
+                <p>Docker, Nginx, CI/CD, and Linux Administration[cite: 1].</p>
             </div>
         </div>
     </section>
 
-    <section id="portfolio" class="section" style="background: white;">
-        <h2 class="section-title">Key Projects</h2>
-        <div class="skills-grid">
-            <div class="card" style="border-left: 5px solid var(--tech-accent);">
-                <h3>Artura | B2B Platform</h3>
-                <p>Leading the technical architecture for a B2B interior design ecosystem. Managing database schema and API implementation.</p>
-                <span class="tag" style="background: #ecfdf5; color: var(--tech-accent);">Lead Engineer</span>
+    <!-- Section 4: Portfolio -->
+    <section id="portfolio" class="portfolio">
+        <h2 class="section-title">Portfolio & Projects</h2>
+        <div class="underline"></div>
+        <p style="margin-bottom: 40px; opacity: 0.9;">Explore my engineering work and contributions[cite: 1]</p>
+        
+        <div class="project-container">
+            <div class="project-card">
+                <span style="font-size: 12px; font-weight: bold; color: #764ba2;">• PROJECT</span>
+                <h3 style="margin: 10px 0;">Artura B2B Platform</h3>
+                <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 20px;">
+                    A platform connecting manufacturers with interior designers. Lead Engineer[cite: 1].
+                </p>
+                <a href="#" style="color: #764ba2; font-weight: bold; text-decoration: none;">View Project →</a>
             </div>
-            <div class="card" style="border-left: 5px solid var(--tech-accent);">
-                <h3>Holberton HBnB Clone</h3>
-                <p>A full-stack AirBnB clone project covering the entire lifecycle: MySQL database, Flask API, and dynamic frontend.</p>
-                <span class="tag" style="background: #ecfdf5; color: var(--tech-accent);">Full-Stack Dev</span>
+            <div class="project-card">
+                <span style="font-size: 12px; font-weight: bold; color: #764ba2;">• OPEN SOURCE</span>
+                <h3 style="margin: 10px 0;">HBnB Clone</h3>
+                <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 20px;">
+                    Full-stack AirBnB clone covering database to frontend[cite: 1].
+                </p>
+                <a href="#" style="color: #764ba2; font-weight: bold; text-decoration: none;">View Repositories →</a>
             </div>
+        </div>
+    </section>
+
+    <!-- Section 5: Contact -->
+    <section id="contact">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="underline"></div>
+        <div class="contact-grid">
+            <div class="contact-item">
+                <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                <span style="font-size: 12px; color: var(--text-muted);">EMAIL</span>
+                <p style="font-weight: bold;">kholoud@example.com</p>
+            </div>
+            <div class="contact-item">
+                <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                <span style="font-size: 12px; color: var(--text-muted);">PHONE</span>
+                <p style="font-weight: bold;">+966 5XX XXX XXX</p>
+            </div>
+            <div class="contact-item">
+                <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                <span style="font-size: 12px; color: var(--text-muted);">LOCATION</span>
+                <p style="font-weight: bold;">Riyadh, Saudi Arabia[cite: 1]</p>
+            </div>
+        </div>
+        <div class="social-icons" style="margin-top: 50px;">
+            <a href="#"><i class="fab fa-github" style="color: #333;"></i></a>
+            <a href="#"><i class="fab fa-linkedin" style="color: #0077b5;"></i></a>
         </div>
     </section>
 
     <footer>
-        <div class="social-links">
-            <a href="https://github.com/khuloud0" target="_blank" style="color: white; font-size: 24px; margin: 0 15px;"><i class="fab fa-github"></i></a>
-            <a href="#" target="_blank" style="color: white; font-size: 24px; margin: 0 15px;"><i class="fab fa-linkedin"></i></a>
-        </div>
-        <p class="footer-text">© 2026 KHOLOUD ALQARNI | ENGINEERED IN RIYADH, KSA</p>
+        <p>© 2026 Kholoud Alqarni — Full-Stack Engineer — Riyadh, Saudi Arabia[cite: 1]</p>
     </footer>
 
 </body>
